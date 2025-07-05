@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LBA - Lekin Bhai Association</title>
+  <style>
+    @font-face {
+      font-family: '.woff';
+      src: url('fonts/REAL.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: '.woff2';
+      src: url('fonts/SFDistantGalaxy.woff2') format('woff2');
+    }
+
+    body {
+      margin: 0;
+      background-color: #000000;
+      font-family: '.woff', sans-serif;
+      color: white;
+    }
+
+    .header {
+      background-color: #000;
+      padding: 20px;
+      border-bottom: 2px solid red;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-placeholder video {
+      height: 80px; /* Increased from 60px */
+      animation: customHueShift 3s infinite linear;
+      pointer-events: none;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-buttons img {
+      height: 90px; /* Increased from 70px */
+      width: 90px;  /* Increased from 70px */
+      cursor: pointer;
+      transition: transform 0.3s;
+      filter: none;
+      border: none;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+    }
+
+    .nav-buttons img:hover {
+      transform: scale(1.1);
+    }
+
+    .description-box {
+      margin: 40px 0;
+      width: 90%;
+      max-width: 900px;
+      padding: 20px;
+      text-align: left;
+      background-color: #000;
+      font-size: 1.1em;
+      font-family: '.woff2', sans-serif;
+      margin-left: 0;
+    }
+
+    .description-box img {
+      width: 100%;
+      border: none;
+    }
+
+    .members {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .member {
+      position: relative;
+      width: 250px;
+      margin: 20px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .member:hover {
+      transform: scale(1.05);
+    }
+
+    .member img {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .name {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 10px;
+      color: white;
+      text-shadow: 0 0 5px red;
+      font-family: '.woff', sans-serif;
+    }
+
+    .details {
+      display: none;
+      background: rgba(255, 0, 0, 0.1);
+      border-top: 1px solid red;
+      padding: 10px;
+      margin-top: 5px;
+      color: #ffdddd;
+      font-size: 0.95em;
+      font-family: '.woff', sans-serif;
+    }
+
+    .member:hover .details {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo-placeholder">
+      <video autoplay loop muted playsinline>
+        <source src="logo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="nav-buttons">
+      <img src="ABOUT.png" alt="About">
+      <img src="PROJECTS.png" alt="Projects">
+      <img src="LEADERSHIP.png" alt="Leadership">
+    </div>
+  </div>
+
+  <div class="description-box">
+    <img src="para.png" alt="Paragraph Graphic Placeholder">
+  </div>
+
+  <div class="members">
+    <div class="member">
+      <img src="BELAL ji.png" alt="Belal">
+      <div class="name">belal</div>
+      <div class="details">Belal is known for his deep insights, edgy sense of humor, and active role in the LBA tech squad.</div>
+    </div>
+
+    <div class="member">
+      <img src="haider.jpg" alt="Haider">
+      <div class="name">haider</div>
+      <div class="details">Haider is the creative mind behind many LBA events and projects. A mix of art, brains, and humor.</div>
+    </div>
+
+    <div class="member">
+      <img src="saim.png" alt="Saim">
+      <div class="name">saim</div>
+      <div class="details">Vice President of LBA. Saim manages discussions with maturity and contributes to LBA's vision daily.</div>
+    </div>
+  </div>
+
+</body>
+</html>
