@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Belal UI</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: 'Arial', sans-serif;
+      color: #00f7ff;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    canvas#bgCanvas, canvas#boxCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    canvas#boxCanvas {
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      background-color: #000;
+      width: 90%;
+      max-width: 1200px;
+      padding: 20px;
+      gap: 30px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 20px;
+      position: relative;
+    }
+
+    .left img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      animation: hueShift 5s infinite linear;
+    }
+
+    .paragraph-placeholder {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .paragraph-placeholder img {
+      width: 100%;
+      max-width: 1000px;
+      filter: none !important;
+    }
+
+    .right {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    .logo-placeholder img {
+      width: 100%;
+      max-width: 700px;
+      animation: hueShift 6s infinite linear;
+      filter: none !important;
+    }
+
+    .info-placeholder img {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    @keyframes hueShift {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <canvas id="boxCanvas"></canvas>
+  <div class="container">
+    <div class="left">
+      <img src="BELAL.REAL.png" alt="Belal Real Picture">
+      <div class="paragraph-placeholder">
+        <img src="PARA.BELAL.REAL.png" alt="Paragraph Placeholder">
+      </div>
+    </div>
+    <div class="right">
+      <div class="logo-placeholder">
+        <img src="BELAL_LOGO.png" alt="Belal Logo">
+      </div>
+      <div class="info-placeholder">
+        <img src="INFO.png" alt="Info Placeholder">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setupStars(canvas, numStars) {
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const stars = [];
+
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5,
+          speed: Math.random() * 0.5 + 0.1
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#00f7ff';
+        for (let star of stars) {
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+          ctx.fill();
+          star.y += star.speed;
+          if (star.y > canvas.height) {
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    }
+
+    setupStars(document.getElementById('bgCanvas'), 200);
+    setupStars(document.getElementById('boxCanvas'), 80);
+  </script>
+</body>
+</html>
+ 
